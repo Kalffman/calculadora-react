@@ -38,11 +38,13 @@ export default class Calculator extends Component {
             const currentOperation = this.state.operation;
 
             const values = [...this.state.values];
+
             try{
                 values[0] = eval(`${values[0]} ${currentOperation} ${values[1]}`);
             } catch (e) {
                 values[0] = this.state.values[0];
             }
+            
             values[1] = 1;
 
             this.setState({
@@ -73,8 +75,6 @@ export default class Calculator extends Component {
 
             values[i] = newValue;
             this.setState({ values });
-
-            console.log(this.state.values)
         }
     }
 
